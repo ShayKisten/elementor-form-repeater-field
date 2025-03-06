@@ -181,6 +181,81 @@ class RepeaterSection extends Field_Base {
             ]
         );
 
+        $widget->add_control(
+            'repeater_title_styles',
+            [
+                'label' => esc_html__('Title', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $widget->add_control(
+            'title_font_family',
+            [
+                'label' => esc_html__('Font Family', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::FONT,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-section-header .elementor-field-label' => 'font-family: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $widget->add_control(
+            'title_font_size',
+            [
+                'label' => esc_html__('Font Size', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                    'em' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                    'rem' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 14,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-section-header .elementor-field-label' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $widget->add_control(
+            'title_color',
+            [
+                'label' => esc_html__('Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-section-header .elementor-field-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $widget->add_control(
+            'arrow_color',
+            [
+                'label' => esc_html__('Arrow Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-toggle' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $widget->end_controls_section();
     }
 }
