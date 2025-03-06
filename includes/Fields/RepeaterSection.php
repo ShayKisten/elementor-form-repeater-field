@@ -255,6 +255,17 @@ class RepeaterSection extends Field_Base {
                 ],
             ]
         );
+        $widget->add_control(
+            'delete_color',
+            [
+                'label' => esc_html__('Delete Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-delete' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
 
         $widget->add_control(
             'repeater_button_styles',
