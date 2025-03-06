@@ -42,7 +42,7 @@ function elementor_form_field_repeater_enqueue_scripts() {
         wp_enqueue_script(
             'efrf-repeater-scripts',
             plugin_dir_url(__FILE__) . 'assets/js/repeater-scripts.js',
-            ['jquery', 'elementor-frontend'],
+            ['jquery'],
             '1.0.0',
             true
         );
