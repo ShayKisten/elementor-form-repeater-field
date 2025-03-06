@@ -3,6 +3,7 @@ namespace ElementorFormFieldRepeater\Fields;
 
 use ElementorPro\Modules\Forms\Fields\Field_Base;
 use Elementor\Controls_Manager;
+use ElementorPro\Modules\Forms\Widgets\Form;
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
@@ -84,6 +85,8 @@ class RepeaterSection extends Field_Base {
 
         $control_data['fields'] = $this->inject_field_controls($control_data['fields'], $field_controls);
         $widget->update_control('form_fields', $control_data);
+
+        add_action('elementor/element/form/section_form_style/after_section_end', [$this, 'register_form_style_controls'], 10, 2);
     }
 
     public function render($item, $item_index, $form): void {
@@ -104,5 +107,80 @@ class RepeaterSection extends Field_Base {
             echo '</div>';
             echo '</div>';
         }
+    }
+
+    public function register_form_style_controls($widget, $args) {
+        $widget->start_controls_section(
+            'section_repeater_styles',
+            [
+                'label' => esc_html__('Repeater', 'elementor-form-repeater-field'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $widget->add_control(
+            'repeater_header_styles',
+            [
+                'label' => esc_html__('Repeater Header', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $widget->add_control(
+            'header_font_family',
+            [
+                'label' => esc_html__('Font Family', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::FONT,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .elementor-field-type-repeater_container .elementor-field-label' => 'font-family: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $widget->add_control(
+            'header_font_size',
+            [
+                'label' => esc_html__('Font Size', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                    'em' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                    'rem' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 16,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .elementor-field-type-repeater_container .elementor-field-label' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $widget->add_control(
+            'header_color',
+            [
+                'label' => esc_html__('Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .elementor-field-type-repeater_container .elementor-field-label' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $widget->end_controls_section();
     }
 }
