@@ -256,6 +256,36 @@ class RepeaterSection extends Field_Base {
             ]
         );
 
+        $widget->add_control(
+            'repeater_button_styles',
+            [
+                'label' => esc_html__('Repeater Button', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+        $widget->add_control(
+            'background_color',
+            [
+                'label' => esc_html__('Background Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-add-more' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $widget->add_control(
+            'text_color',
+            [
+                'label' => esc_html__('Text Color', 'elementor-form-repeater-field'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .efrf-add-more' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
         $widget->end_controls_section();
     }
 }
