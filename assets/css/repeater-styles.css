@@ -1,0 +1,58 @@
+.efrf-repeater-end {
+    margin-top: 10px;
+}
+
+.efrf-repeater-controls {
+    display: inline-block;
+}
+
+.efrf-section {
+    margin-bottom: 15px;
+    width: 100%;
+    display: block;
+}
+
+.efrf-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.efrf-controls {
+    display: flex;
+    align-items: center;
+}
+
+.efrf-toggle,
+.efrf-delete {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.efrf-delete {
+    color: #d63638;
+}
+
+.efrf-section.efrf-expanded .elementor-field-group,
+.efrf-section.efrf-expanded .efrf-section,
+.efrf-section.efrf-expanded input,
+.efrf-section.efrf-expanded textarea,
+.efrf-section.efrf-expanded select {
+    display: block;
+}
+
+.efrf-section.efrf-collapsed .elementor-field-group,
+.efrf-section.efrf-collapsed .efrf-section,
+.efrf-section.efrf-collapsed input,
+.efrf-section.efrf-collapsed textarea,
+.efrf-section.efrf-collapsed select {
+    display: none;
+}
+
+.efrf-section .elementor-field-group {
+    width: 95%;
+    margin-left: 2.5%;
+}
