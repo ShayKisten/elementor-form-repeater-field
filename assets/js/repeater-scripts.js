@@ -73,6 +73,8 @@ jQuery(document).ready(function($) {
 
             $input.attr('name', newFieldName);
             $input.attr('id', newFieldId);
+            $input.attr('required', 'required');
+            $input.attr('aria-required', 'true');
             console.log('Renamed input:', fieldId, 'to name:', newFieldName, 'and id:', newFieldId);
         });
     }

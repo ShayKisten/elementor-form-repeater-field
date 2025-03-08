@@ -13,6 +13,7 @@ Elementor Form Repeater Field is a WordPress plugin that enhances Elementor Pro 
 * **Add/Remove Controls:** Includes "Add More" buttons to duplicate sections and delete buttons to remove them.
 * **Processed Output:** Formats repeater data into readable labels (e.g., "Repeater 1 - Field 1 - Field") for post-submission display.
 * **Lightweight Integration:** Loads assets only on Elementor-built pages for performance.
+* **Required Fields:** All fields inside a repeater block is set to required.
 
 **Installation:**
 
@@ -41,6 +42,9 @@ Elementor Form Repeater Field is a WordPress plugin that enhances Elementor Pro 
 * No additional settings are required—just add "Repeater Container" fields to your Elementor Pro form and configure their identifiers and titles.
 
 **Changelog:**
+
+* **1.0.1:**
+  * Made all fields inside a repeater block required
 
 * **1.0.0:**
   * Initial release.

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Elementor Form Repeater Field
 Description: Adds a custom form field to Elementor Pro forms for repeating form fields.
-Version: 1.0.0
+Version: 1.0.1
 Author: ShayKisten
 Author URI: https://shaykisten.com
 License: GPLv2 or later
